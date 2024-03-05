@@ -1,16 +1,16 @@
-const express = require('express')
-const uuid = require('uuid')
-const port = 3000
-const app = express()
-app.use(express.json())
+const express = require('express');
+const uuid = require('uuid');
+const port = 3001;
+const app = express();
+app.use(express.json());
 
 const order = []
 
 const logRequest = (request, response, next) => {
 
-    console.log(`[${request.method}] - ${request.url}`)
+    console.log(`[${request.method}] - ${request.url}`);
 
-    next()
+    next();
   }
 
 const checkId = (request, response, next) => {
@@ -55,8 +55,6 @@ app.put('/order/:id', checkId, logRequest, (request, response) => {
     const { list, clienteName, price, status} = request.body
 
    
-
-
     const updated = { id, list, clienteName, price, status:"em preparação"}
 
 
